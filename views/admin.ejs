@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5cca11e197.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/adminStyle.css">
+    <title>Administrator Page</title>
+</head>
+<body>
+    <div class="box">
+        <% for(let i = 0; i < dataItems.length; i++) { %>
+    
+            <table>
+                <tr>
+                    <td><%= dataItems[i].name %></td>
+                    <td><%= dataItems[i].dateofbirth %></td>
+                    <td><%= dataItems[i].residence %></td>
+                    <td><%= dataItems[i].education %></td>
+                    <td><%= dataItems[i].technicalskills %></td>
+                    <td><%= dataItems[i].softskills %></td>
+                    <form action="/delete" method="POST">
+                        <input type="hidden" value="<%= wishItems[i].name %>" name="hidden">
+                        <button type="submit">-</button> 
+                     </form> 
+                    </td>
+                </tr>
+            </table>
+            <% } %>
+
+            <div class="container">
+            <form action="/admin" method="POST" class="form-row">
+                <div class="form-group col-md-6">
+                <input type="text" name="newName" class="form-control" placeholder="Lisa Nimi" required>
+                <input type="text" name="newDofb" class="form-control" placeholder="Lisa Sünnikuupäev" required>
+                <input type="text" name="newResidence" class="form-control" placeholder="Lisa Elukoht" required>
+                <input type="text" name="newEducation" class="form-control" placeholder="Lisa Haridus" required>
+                <input type="text" name="newTechskills" class="form-control" placeholder="Lisa oma tehnilised oskused" required>
+                <input type="text" name="newSoftskills" class="form-control" placeholder="Lisa oma iseloomustuse omadused" required>
+                <div class="btn">
+                    <button type="submit" class="btn-btn-outline-dark btn-lg">+</button>
+                </div>
+            </div>
+            </form>
+            // Back nupp, et tagasi minna resume veebilehele
+        </div>
+    </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.form-control {
+  margin-top: 0.5rem;
+}
