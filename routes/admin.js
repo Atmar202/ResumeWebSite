@@ -3,7 +3,8 @@ const adminController = require('../controllers/adminController');
 const router = express.Router();
 
 router.get('/admin', adminController.getAdminPage);
-router.post('/admin', adminController.postData);
-router.post('/delete', adminController.deleteData);
+// router.post('/admin', adminController.postData);
+router.post('/admin', adminController.updateData);
+// router.post('/delete', adminController.deleteData);
 
 module.exports = router;

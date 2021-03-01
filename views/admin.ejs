@@ -8,44 +8,29 @@
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/adminStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Administrator Page</title>
 </head>
-<body>
-    <div class="box">
-        <% for(let i = 0; i < dataItems.length; i++) { %>
-    
-            <table>
-                <tr>
-                    <td><%= dataItems[i].name %></td>
-                    <td><%= dataItems[i].dateofbirth %></td>
-                    <td><%= dataItems[i].residence %></td>
-                    <td><%= dataItems[i].education %></td>
-                    <td><%= dataItems[i].technicalskills %></td>
-                    <td><%= dataItems[i].softskills %></td>
-                    <form action="/delete" method="POST">
-                        <input type="hidden" value="<%= wishItems[i].name %>" name="hidden">
-                        <button type="submit">-</button> 
-                     </form> 
-                    </td>
-                </tr>
-            </table>
-            <% } %>
-
-            <div class="container">
+<body class="bg-light">
+            <div class="container mt-4">
             <form action="/admin" method="POST" class="form-row">
                 <div class="form-group col-md-6">
-                <input type="text" name="newName" class="form-control" placeholder="Lisa Nimi" required>
-                <input type="text" name="newDofb" class="form-control" placeholder="Lisa Sünnikuupäev" required>
-                <input type="text" name="newResidence" class="form-control" placeholder="Lisa Elukoht" required>
-                <input type="text" name="newEducation" class="form-control" placeholder="Lisa Haridus" required>
-                <input type="text" name="newTechskills" class="form-control" placeholder="Lisa oma tehnilised oskused" required>
-                <input type="text" name="newSoftskills" class="form-control" placeholder="Lisa oma iseloomustuse omadused" required>
+                <input type="text" name="newName" class="form-control animate__animated animate__fadeIn animate__delay-0.5s" placeholder="Lisa Nimi" value="<%= dataItems[0].name %>" required>
+                <input type="text" name="newDofb" class="form-control animate__animated animate__fadeIn animate__delay-0.5s" placeholder="Lisa Sünnikuupäev" value="<%= dataItems[0].dateofbirth %>" required>
+                <input type="text" name="newResidence" class="form-control animate__animated animate__fadeIn animate__delay-0.5s" placeholder="Lisa Elukoht" value="<%= dataItems[0].residence %>" required>
+                <input type="text" name="newEducation" class="form-control animate__animated animate__fadeIn animate__delay-0.5s" placeholder="Lisa Haridus" value="<%= dataItems[0].education %>" required>
+                <input type="text" name="newTechskills" class="form-control animate__animated animate__fadeIn animate__delay-0.5s" placeholder="Lisa oma tehnilised oskused" value="<%= dataItems[0].technicalskills %>" required>
+                <input type="text" name="newSoftskills" class="form-control animate__animated animate__fadeIn animate__delay-0.5s" placeholder="Lisa oma iseloomustuse omadused" value="<%= dataItems[0].softskills %>" required>
                 <div class="btn">
-                    <button type="submit" class="btn-btn-outline-dark btn-lg">+</button>
+                    <button type="submit" class="btn btn-secondary btn-md mb-n2">Update</button>
                 </div>
             </div>
             </form>
-            // Back nupp, et tagasi minna resume veebilehele
+            <div class="form-group col-md-6">
+            <form method="get" action="/">
+                <button class="btn btn-primary btn-md">Back</button>
+            </form>
+        </div>
         </div>
     </div>
     </form>
